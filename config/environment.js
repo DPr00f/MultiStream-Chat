@@ -38,6 +38,12 @@ configValue.server.allowedScripts = process.env.ALLOWED_SCRIPTS.split(',');
 configValue.server.allowedFonts = process.env.ALLOWED_FONTS.split(',');
 configValue.server.allowedWSS = process.env.ALLOWED_WSS.split(',');
 configValue.server.allowedImages = process.env.ALLOWED_IMAGES.split(',');
+configValue.server.twitch = {
+  id: getEnvOrDefault('TWITCH_CLIENT_ID', ''),
+  secret: getEnvOrDefault('TWITCH_CLIENT_SECRET', ''),
+  callbackUrl: getEnvOrDefault('TWITCH_CALLBACK_URL', '')
+};
+
 debug.enable(process.env.DEBUG);
 
 module.exports = configValue;

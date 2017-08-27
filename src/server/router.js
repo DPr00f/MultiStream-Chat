@@ -1,6 +1,7 @@
 import express from 'express';
 import debug from 'debug';
 import Raven from 'raven';
+import passport from 'passport';
 import renderApp from './middleware/renderApp';
 import { onError } from './middleware/error';
 
@@ -13,29 +14,22 @@ export function setRoutes(config, buildAssets) {
   log('adding react routes');
 
   routingApp.use((req, res, next) => {
+    if (routingApp.locals.initialState) {
+      routingApp.locals.initialState = {};
+    }
     routingApp.locals.initialState = routingApp.locals.initialState || {};
     routingApp.locals.config = routingApp.locals.config || {};
     routingApp.locals.config.nonce = res.locals.nonce;
+    if (req.session && req.session.passport && req.session.passport.user && req.session.passport.user.clientTwitch) {
+      if (!routingApp.locals.initialState.core) {
+        routingApp.locals.initialState.core = {};
+      }
+      routingApp.locals.initialState.core.twitch = req.session.passport.user.clientTwitch;
+    }
     next();
   });
-  routingApp.get('/qrentry/:id', (req, res) => {
-    const id = req.params.id;
-    const ref = firebase.database().ref(`/entry/${id}`);
-    ref.once('value')
-      .then(snapshot => {
-        const val = snapshot.val();
-        if (!val) {
-          renderApp(assets, config, routingApp)(req, res);
-          return;
-        }
-        ref.child('validated').set(true);
-        res.send("The qr code should disappear and you'll be able to view the website. Enjoy.");
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(501).send('An error was found, let an administrator know.');
-      });
-  });
+  routingApp.get('/auth/twitch', passport.authenticate('twitch', { scope: 'user_read' }));
+  routingApp.get('/api/twitch_oauth', passport.authenticate('twitch', { successRedirect: '/', failureRedirect: '/' }));
   routingApp.get('*', renderApp(assets, config, routingApp));
 
   if (config.server.raven) {

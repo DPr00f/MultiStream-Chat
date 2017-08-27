@@ -8,7 +8,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className="page">
-        Hello
+        <a href="/auth/twitch" target="_blank">
+          <img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" />
+        </a>
       </div>
     );
   }
