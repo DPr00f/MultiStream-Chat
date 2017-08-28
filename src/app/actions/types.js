@@ -1,3 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-export const SAMPLE_ACTION_TYPE = 'SAMPLE_ACTION_TYPE';
+export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const LOGOUT = 'LOGOUT';
+export const LOGOUT_TWITCH_COMPLETE = 'LOGOUT_TWITCH_COMPLETE';
+export const LOGOUT_LIVE_EDU_COMPLETE = 'LOGOUT_LIVE_EDU_COMPLETE';

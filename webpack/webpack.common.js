@@ -94,7 +94,18 @@ module.exports = {
         include: [/src/],
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader?sourceMap', 'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true', 'postcss-loader?sourceMap=true']
+          use: [
+            'css-loader?sourceMap',
+            'postcss-loader?sourceMap=true',
+            'sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                // Provide path to the file with resources
+                resources: path.resolve(__dirname, '../src/styles/_resources.scss')
+              }
+            }
+          ]
         })
       },
       {

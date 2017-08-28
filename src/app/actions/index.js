@@ -1,7 +1,21 @@
 /* eslint-disable import/prefer-default-export */
-import { SAMPLE_ACTION_TYPE } from './types';
+import {
+  TOGGLE_MENU,
+  LOGOUT
+} from './types';
 
+export const toggleMenu = () => ({
+  type: TOGGLE_MENU
+});
 
-export const sampleAction = () => ({
-  type: SAMPLE_ACTION_TYPE
+export const logoutTwitch = () => ({
+  type: LOGOUT,
+  service: 'TWITCH',
+  url: '/auth/twitch/logout'
+});
+
+export const logoutLiveEdu = () => ({
+  type: LOGOUT,
+  service: 'LIVE_EDU',
+  url: '/auth/liveedu/logout'
 });

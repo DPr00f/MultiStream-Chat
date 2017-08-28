@@ -4,6 +4,10 @@ import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import Status from './components/Status';
 import Home from './containers/Home';
+import Site from './containers/Site';
+import Page from './containers/Page';
+import Menu from './components/Menu';
+import MenuButton from './containers/MenuButton';
 
 const NotFound = () => (
   <div>
@@ -29,12 +33,16 @@ class Root extends React.Component {
 
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
+      <Site>
+        <Menu />
+        <Page>
+          <MenuButton />
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route component={NotFound} />
+          </Switch>
+        </Page>
+      </Site>
     );
   }
 }

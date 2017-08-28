@@ -1,5 +1,6 @@
-import { createStore, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import reducers from '../reducers';
+import services from '../services';
 
 const debugEnhancer =
   typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ?
@@ -10,6 +11,7 @@ export default function configureStore(initialState = {}) {
   const initialReducers = combineReducers(reducers);
 
   const enhancer = compose(
+    applyMiddleware(...services),
     debugEnhancer
   );
 

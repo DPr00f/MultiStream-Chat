@@ -1,0 +1,122 @@
+.siteContainer, #app {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: $pageBgColor;
+  color: $menuContainerColor;
+}
+
+.menuWrap {
+  position: absolute;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.showMenu .menuWrap {
+  opacity: 1;
+}
+
+.menuTop .logo, .menuSide {
+  width: 200px;
+}
+
+.pageWrapper {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  transition: transform 0.3s;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.showMenu .pageWrapper {
+  transform: translate3d(200px, 60px, 0);
+}
+
+.page {
+  position: relative;
+  background: $contentBackgroundColor;
+  min-height: 100%;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+  transition: opacity 0.3s, transform 0s 0.3s;
+}
+
+.showMenu .page::before {
+  opacity: 1;
+  transition: opacity 0.3s;
+  transform: translate3d(0, 0, 0);
+  cursor: pointer;
+}
+
+.menuButton {
+  position: fixed;
+  z-index: 2;
+  margin: 0.5em;
+  padding: 0;
+  width: 2em;
+  height: 1.75em;
+  border: none;
+  text-indent: 2em;
+  font-size: 1.5em;
+  color: transparent;
+  background: transparent;
+  transition: transform 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+
+.menuButton::before {
+  content: '';
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  bottom: 0.5em;
+  left: 0.5em;
+  background: linear-gradient($menuButtonColor 20%, transparent 20%, transparent 40%, $menuButtonColor 40%, $menuButtonColor 60%, transparent 60%, transparent 80%, $menuButtonColor 80%);
+}
+
+.menuWrap a {
+  color: $menuLinkColor;
+  text-decoration: none;
+}
+
+.menuSide a {
+  display: block;
+  padding: 1.2em;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  &:first-child {
+    border-top:  1px solid rgba(0,0,0,0.1);
+  }
+}
+
+
+.menuWrap a:hover, .menuWrap a:focus {
+  color: #c94e50;
+}
+
+.menuTop .logo,
+.menuTop .iconList {
+  display: inline-block;
+}
+
+.menuTop {
+  line-height: 60px;
+}
+
+.menuTop .logo {
+  padding-left: 1.2em;
+}

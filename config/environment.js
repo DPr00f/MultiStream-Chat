@@ -43,6 +43,11 @@ configValue.server.twitch = {
   secret: getEnvOrDefault('TWITCH_CLIENT_SECRET', ''),
   callbackUrl: getEnvOrDefault('TWITCH_CALLBACK_URL', '')
 };
+configValue.server.liveedu = {
+  id: getEnvOrDefault('LIVEEDU_CLIENT_ID', ''),
+  secret: getEnvOrDefault('LIVEEDU_CLIENT_SECRET', ''),
+  callbackUrl: getEnvOrDefault('LIVEEDU_CALLBACK_URL', '')
+};
 
 debug.enable(process.env.DEBUG);
 

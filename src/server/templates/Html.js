@@ -43,6 +43,7 @@ const Html = (
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {head.meta.toComponent()}
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
         {assets && assets.vendor && assets.vendor.css
           ? <link rel="stylesheet" type="text/css" href={assets.vendor.css} />
           : null}

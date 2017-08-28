@@ -7,10 +7,8 @@ import bodyParser from 'body-parser';
 import debug from 'debug';
 import session from 'cookie-session';
 import Raven from 'raven';
-import passport from 'passport';
 import { DIST, PUBLIC } from '../../config/paths';
 import nonce from './middleware/nonce';
-import './passport/twitch';
 
 const log = debug('stream-chat:setup');
 
@@ -40,11 +38,9 @@ export default function setup(server, config, buildAssets) {
   server.use(bodyParser.json({ limit: '100mb'}));
   server.use(bodyParser.urlencoded({limit: '100mb', extended: true }));
   server.use(session({
-    name: 'joaoswebsite',
+    name: 'multistream-chat',
     secret: config.server.sessionSecret
   }));
-  server.use(passport.initialize());
-  server.use(passport.session());
 
   server.set('etag', true);
 

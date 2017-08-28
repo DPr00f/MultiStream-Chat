@@ -1,0 +1,55 @@
+.services {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 200px;
+}
+
+.services__item {
+  width: 200px;
+  text-align: center;
+}
+
+.serviceLogo {
+  font-size: 100px;
+}
+
+.serviceTitle {
+  margin: 0;
+}
+
+.authLink,
+.deauthLink {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+.authLink {
+  color: $linkColor;
+}
+
+.authLink--twitch {
+  color: $linkColorTwitch;
+}
+
+.deauthLink {
+  color: $linkLogoutColor;
+  transition: color 0.3s;
+}
+
+.deauthLink:hover,
+.deauthLink:focus {
+  color: $linkLogoutColorHover;
+}
+
+.serviceDetails {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.deauthLink .serviceTitle {
+  font-size: 16px;
+}
