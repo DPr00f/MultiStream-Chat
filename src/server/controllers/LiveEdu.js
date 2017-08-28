@@ -49,8 +49,8 @@ class LiveEdu extends OAuth2 {
         password: session.user.password,
         color: session.user.color
       },
-      accessToken: this.sessionData.accessToken,
-      refreshToken: this.sessionData.refreshToken
+      accessToken: session.accessToken,
+      refreshToken: session.refreshToken
     };
   }
 
