@@ -21,7 +21,9 @@
     "start": "NODE_ENV=development node scripts/dev.js",
     "dev": "NODE_ENV=development node scripts/dev.js",
     "now-build": "npm run build:prod:server && npm run build:prod:client",
-    "now-start": "NODE_ENV=production node build/server.js"
+    "now-start": "NODE_ENV=production node build/server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Joao Lopes",
   "license": "ISC",
@@ -52,7 +54,8 @@
     "serialize-javascript": "^1.4.0",
     "servertiming": "^1.4.0",
     "stanza.io": "^8.4.3",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "snyk": "^1.70.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -102,5 +105,6 @@
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-node-externals": "^1.6.0"
-  }
+  },
+  "snyk": true
 }
