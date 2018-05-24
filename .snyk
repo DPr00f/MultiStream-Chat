@@ -1,0 +1,19 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - stanza.io > jxt-xmpp > xmpp-jid > node-stringprep > debug:
+        patched: '2018-05-24T05:25:27.583Z'
+    - stanza.io > jxt-xmpp-types > xmpp-jid > node-stringprep > debug:
+        patched: '2018-05-24T05:25:27.583Z'
+    - stanza.io > xmpp-jid > node-stringprep > debug:
+        patched: '2018-05-24T05:25:27.583Z'
+  'npm:ms:20170412':
+    - stanza.io > jxt-xmpp > xmpp-jid > node-stringprep > debug > ms:
+        patched: '2018-05-24T05:25:27.583Z'
+    - stanza.io > jxt-xmpp-types > xmpp-jid > node-stringprep > debug > ms:
+        patched: '2018-05-24T05:25:27.583Z'
+    - stanza.io > xmpp-jid > node-stringprep > debug > ms:
+        patched: '2018-05-24T05:25:27.583Z'
