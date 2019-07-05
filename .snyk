@@ -1,0 +1,20 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - hpp > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
+    - redux > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
+    - stanza.io > async > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
+    - stanza.io > hostmeta > async > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
+    - stanza.io > jingle > jingle-session > async > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
+    - stanza.io > jingle > jingle-filetransfer-session > jingle-session > async > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
+    - stanza.io > jingle > jingle-media-session > jingle-session > async > lodash:
+        patched: '2019-07-05T07:46:42.651Z'
