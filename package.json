@@ -51,7 +51,7 @@
     "redux": "^3.7.2",
     "serialize-javascript": "^1.4.0",
     "servertiming": "^1.4.0",
-    "stanza.io": "^8.4.3",
+    "stanza.io": "^10.0.0",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
